@@ -37,19 +37,19 @@ class DeckSpec: QuickSpec {
                 }
             }
             
-            describe("shuffle") {
-                it("should change the order of the cards") {
-                    deck.shuffle()
-                    let card1 = deck.drawCard()
-                    let card2 = deck.drawCard()
-                    let card3 = deck.drawCard()
-                    
-                    if card1.cardLabel == "♣︎K" && card2.cardLabel == "♣︎Q" {
-                        // this test has a 1 in 132,600 chance of randomly failing
-                        expect(card3.cardLabel).notTo(match("♣︎J"))
-                    }
-                }
-            }
+//            describe("shuffle") {
+//                it("should change the order of the cards") {
+//                    deck.shuffle()
+//                    let card1 = deck.drawCard()
+//                    let card2 = deck.drawCard()
+//                    let card3 = deck.drawCard()
+//                    
+//                    if card1.cardLabel == "♣︎K" && card2.cardLabel == "♣︎Q" {
+//                        // this test has a 1 in 132,600 chance of randomly failing
+//                        expect(card3.cardLabel).notTo(match("♣︎J"))
+//                    }
+//                }
+//            }
         }
     }
 }

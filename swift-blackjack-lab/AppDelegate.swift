@@ -13,29 +13,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    /**
-     
-     * Declare any custom properties here.
-     
-     */
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        /*
-         
-         * Call your custom classes here when running the scheme.
-         
-         */
+        playBlackjack()
         
-        // Do not alter
-        return true  //
-    }   ///////////////
+        return true
+    }
     
-    /*
-     
-     * Write your playBlackjack method in here
-     
-     */
-    
+    func playBlackjack() {
+        let dealer = Dealer()
+        dealer.deal()
+        
+        for _ in 1...3 {
+            dealer.turn(dealer.player)
+            dealer.turn(dealer.house)
+            
+            dealer.turn(dealer.player)
+            dealer.turn(dealer.house)
+            
+            if (dealer.player.busted || dealer.house.busted) {
+                break
+            }
+        }
+        
+        print(dealer.player.description)
+        print(dealer.house.description)
+        
+        print(dealer.award())
+    }
 }
-

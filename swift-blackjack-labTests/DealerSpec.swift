@@ -167,23 +167,22 @@ class DealerSpec: QuickSpec {
                     dealer.player.cards.append(aceOfHearts)
                     dealer.player.cards.append(queenOfHearts)
                     
-                    expect(dealer.winner()).to(match("player"))
+                    expect(dealer.winner().lowercaseString).to(match("player"))
                 }
                 
                 it("should return 'house' if the house has blackjack but the player does not") {
                     dealer.house.cards.append(aceOfSpades)
                     dealer.house.cards.append(tenOfDiamonds)
                     
-                    expect(dealer.winner()).to(match("house"))
+                    expect(dealer.winner().lowercaseString).to(match("house"))
                 }
-                
                 
                 it("should return 'house' if the player busted") {
                     dealer.player.cards.append(tenOfDiamonds)
                     dealer.player.cards.append(queenOfHearts)
                     dealer.player.cards.append(twoOfClubs)
                     
-                    expect(dealer.winner()).to(match("house"))
+                    expect(dealer.winner().lowercaseString).to(match("house"))
                 }
                 
                 it("should return 'player' if the house busted") {
@@ -191,7 +190,7 @@ class DealerSpec: QuickSpec {
                     dealer.house.cards.append(queenOfHearts)
                     dealer.house.cards.append(twoOfClubs)
                     
-                    expect(dealer.winner()).to(match("player"))
+                    expect(dealer.winner().lowercaseString).to(match("player"))
                 }
                 
                 it("should return 'player' if the player holds five cards without busting") {
@@ -201,7 +200,7 @@ class DealerSpec: QuickSpec {
                     dealer.player.cards.append(sixOfClubs)
                     dealer.player.cards.append(tenOfDiamonds)
                     
-                    expect(dealer.winner()).to(match("player"))
+                    expect(dealer.winner().lowercaseString).to(match("player"))
                 }
                 
                 it("should return 'player' if the house and player have stayed and player's score exceeds the house's score") {
@@ -213,7 +212,7 @@ class DealerSpec: QuickSpec {
                     dealer.house.cards.append(sevenOfClubs)
                     dealer.house.stayed = true
                     
-                    expect(dealer.winner()).to(match("player"))
+                    expect(dealer.winner().lowercaseString).to(match("player"))
                 }
                 
                 it("should return 'house' if the house and player have stayed and player's score does not exceed the house's score") {
@@ -226,7 +225,7 @@ class DealerSpec: QuickSpec {
                     dealer.house.cards.append(aceOfHearts)
                     dealer.house.stayed = true
                     
-                    expect(dealer.winner()).to(match("house"))
+                    expect(dealer.winner().lowercaseString).to(match("house"))
                 }
                 
                 it("should return 'no' if there is not a winner") {
@@ -235,7 +234,7 @@ class DealerSpec: QuickSpec {
                     dealer.house.cards.append(queenOfHearts)
                     dealer.house.cards.append(twoOfClubs)
                     
-                    expect(dealer.winner()).to(match("no"))
+                    expect(dealer.winner().lowercaseString).to(contain("none"))
                 }
             }
             
