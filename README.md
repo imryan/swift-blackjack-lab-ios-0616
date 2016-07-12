@@ -93,7 +93,7 @@ You may deselect the target membership of the testing files in order to work on 
 
 1. Create a `House` class. It should be a subclass of the `Player` class.
 
-2. Override the superclass's initializer to set the `wallet` property to `1000`.
+2. Override the superclass's initializer to set the `tokens` property to `1000`.
 
 3. Add a calculated property `mustHit` that returns a boolean of whether the house must take a new card or not. Treat the "house rules" as staying at a score of seventeen (17).
 
